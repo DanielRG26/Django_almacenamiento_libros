@@ -42,3 +42,41 @@ def eliminar_autor(request, pk):
 
 
 # TODO: Módulo de Libros a continuación (Espacio para Jesús)
+from .models import Libro
+from .forms import LibroForm
+
+
+def lista_libros(request):
+    libros = Libro.objects.select_related('autor').all()
+    return render(request, 'gestion/lista_libros.html', {'libros': libros})
+
+
+def crear_libro(request):
+    if request.method == 'POST':
+        form = LibroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_libros')
+    else:
+        form = LibroForm()
+    return render(request, 'gestion/libro_form.html', {'form': form})
+
+
+def editar_libro(request, pk):
+    libro = get_object_or_404(Libro, pk=pk)
+    if request.method == 'POST':
+        form = LibroForm(request.POST, instance=libro)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_libros')
+    else:
+        form = LibroForm(instance=libro)
+    return render(request, 'gestion/libro_form.html', {'form': form, 'libro': libro})
+
+
+def eliminar_libro(request, pk):
+    libro = get_object_or_404(Libro, pk=pk)
+    if request.method == 'POST':
+        libro.delete()
+        return redirect('lista_libros')
+    return render(request, 'gestion/libro_confirm_delete.html', {'libro': libro})
