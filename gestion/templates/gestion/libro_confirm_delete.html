@@ -1,18 +1,18 @@
 {% extends 'gestion/base.html' %}
 
-{% block title %}Eliminar Autor{% endblock %}
+{% block title %}Eliminar Libro{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-lg-6">
         <div class="card border-danger shadow-sm">
             <div class="card-body p-4">
-                <h1 class="h3 text-danger mb-3">Eliminar autor</h1>
-                <p class="mb-4">¿Deseas eliminar a <strong>{{ autor.nombre }}</strong>?</p>
+                <h1 class="h3 text-danger mb-3">Eliminar libro</h1>
+                <p class="mb-4">¿Deseas eliminar el libro <strong>{{ libro.titulo }}</strong>?</p>
                 <form method="post" class="d-flex gap-2">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-                    <a href="{% url 'lista_autores' %}" class="btn btn-outline-secondary">Cancelar</a>
+                    <a href="{% url 'lista_libros' %}" class="btn btn-outline-secondary">Cancelar</a>
                 </form>
             </div>
         </div>
