@@ -1,9 +1,8 @@
 from django.urls import path
-from django.views.generic import RedirectView
 from . import views
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='libros/', permanent=False)),
+    path('', views.inicio, name='inicio'),
     path('autores/', views.lista_autores, name='lista_autores'),
     path('autores/crear/', views.crear_autor, name='crear_autor'),
     path('autores/editar/<int:pk>/', views.editar_autor, name='editar_autor'),

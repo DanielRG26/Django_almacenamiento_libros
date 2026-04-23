@@ -1,0 +1,30 @@
+{% extends 'gestion/base.html' %}
+
+{% block title %}Inicio - Gestión de Libros{% endblock %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="mb-4">Gestión de Libros</h1>
+    <p class="lead mb-5">Taller 2 Django - Almacenamiento de libros</p>
+    <div class="row justify-content-center g-4">
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h3 class="card-title">Autores</h3>
+                    <p class="card-text text-muted">Gestiona los autores registrados en el sistema.</p>
+                    <a href="{% url 'lista_autores' %}" class="btn btn-primary mt-auto">Ver Autores</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h3 class="card-title">Libros</h3>
+                    <p class="card-text text-muted">Gestiona los libros registrados en el sistema.</p>
+                    <a href="{% url 'lista_libros' %}" class="btn btn-success mt-auto">Ver Libros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

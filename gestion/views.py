@@ -3,6 +3,10 @@ from .models import Autor
 from .forms import AutorForm
 
 
+def inicio(request):
+    return render(request, 'gestion/inicio.html')
+
+
 # CRUD Autores
 
 def lista_autores(request):
