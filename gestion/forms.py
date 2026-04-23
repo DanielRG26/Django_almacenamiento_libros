@@ -6,6 +6,9 @@ class AutorForm(forms.ModelForm):
     class Meta:
         model = Autor
         fields = ['nombre', 'correo', 'nacionalidad', 'fecha_nacimiento', 'biografia']
+        widgets = {
+            'fecha_nacimiento': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        }
 
 
 # TODO: Módulo de Libros a continuación (Espacio para Jesús)
